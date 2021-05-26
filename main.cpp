@@ -30,7 +30,7 @@ int main()
         cout << inputText << endl;
     }
 
-    if (choice == '2'){
+    else if (choice == '2'){
         cout << "You chose decryption." << endl;
         for (int i = 0; i < strlen(inputText); i++)
         {
@@ -40,6 +40,10 @@ int main()
                 inputText[i] = (inputText[i] - 'a' - step) % 26 + 'a';
         }
         cout << inputText << endl;
+    }
+
+    else {
+        cout << "Error: invalid option chosen" << endl;
     }
 
 }

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cctype>
 #include <cstring>
 
 using namespace std;
@@ -6,6 +7,7 @@ using namespace std;
 int main()
 {
     int step;
+    bool uppercase;
     char inputText[255];
     char choice;
 
@@ -22,10 +24,21 @@ int main()
         cout << "You chose encryption." << endl;
         for (int i = 0; i < strlen(inputText); i++)
         {
+            if (isupper(inputText[i])){
+                inputText[i] = inputText[i] + 32;
+                uppercase = true;
+            }
+            else
+                uppercase = false;
+
+
             if (step >= 0)
                 inputText[i] = (inputText[i] - 'a' + step) % 26 + 'a';
             else
                 inputText[i] = (inputText[i] - 'a' + 26 + step) % 26 + 'a';
+
+            if (uppercase)
+                inputText[i] = inputText[i] - 32;
         }
         cout << inputText << endl;
     }
@@ -34,10 +47,20 @@ int main()
         cout << "You chose decryption." << endl;
         for (int i = 0; i < strlen(inputText); i++)
         {
+            if (isupper(inputText[i])){
+                inputText[i] = inputText[i] + 32;
+                uppercase = true;
+            }
+            else
+                uppercase = false;
+
             if (step >= 0)
                 inputText[i] = (inputText[i] - 'a' + 26 - step) % 26 + 'a';
             else
                 inputText[i] = (inputText[i] - 'a' - step) % 26 + 'a';
+
+            if (uppercase)
+                inputText[i] = inputText[i] - 32;
         }
         cout << inputText << endl;
     }

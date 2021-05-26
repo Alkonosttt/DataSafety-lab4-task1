@@ -18,7 +18,6 @@ int main()
 
     cout << "Encryption: type 1"<< endl <<"Decryption: type 2" << endl;
     cin >> choice;
-    cout << choice << endl;
 
     if (choice == '1'){
         cout << "You chose encryption." << endl;
